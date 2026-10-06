@@ -1,0 +1,446 @@
+/* ==========================================================
+   Trabalho de NFV · folha de estilo única do site
+   Para mudar cores e fontes, altere apenas o bloco :root
+   ========================================================== */
+
+:root {
+  /* cores */
+  --nevoa: #EEF3F8;        /* fundo das páginas */
+  --papel: #FFFFFF;        /* caixas e cartões */
+  --tinta: #10243E;        /* texto e menu lateral */
+  --tinta-suave: #4A5D75;  /* texto secundário */
+  --noite: #0C1B30;        /* fundo do mapa da rede */
+  --cabo: #1F6FEB;         /* links e enlaces */
+  --fibra: #F2A900;        /* destaque, nó atual e pacotes */
+  --linha: #C9D6E4;        /* bordas e divisórias */
+
+  /* tipografia */
+  --fonte-titulo: "Red Hat Display", "Segoe UI", system-ui, sans-serif;
+  --fonte-texto: "Red Hat Text", "Segoe UI", system-ui, sans-serif;
+
+  /* medidas */
+  --largura-menu: 17rem;
+  --largura-texto: 44rem;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+body {
+  margin: 0;
+  background: var(--nevoa);
+  color: var(--tinta);
+  font-family: var(--fonte-texto);
+  font-size: 1.0625rem;
+  line-height: 1.65;
+}
+
+a { color: var(--cabo); text-underline-offset: 0.18em; }
+a:hover { color: var(--tinta); }
+
+:focus-visible {
+  outline: 3px solid var(--fibra);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+img { max-width: 100%; height: auto; }
+
+/* ---------- menu lateral, desenhado como uma rota de saltos ---------- */
+
+.menu {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--largura-menu);
+  padding: 2rem 1.5rem;
+  background: var(--tinta);
+  color: #DCE7F3;
+  overflow-y: auto;
+}
+
+.menu__marca {
+  display: block;
+  margin-bottom: 2rem;
+  color: #FFFFFF;
+  text-decoration: none;
+}
+.menu__marca:hover { color: #FFFFFF; }
+.menu__sigla {
+  display: block;
+  font-family: var(--fonte-titulo);
+  font-size: 2.4rem;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+  line-height: 1;
+}
+.menu__nome {
+  display: block;
+  margin-top: 0.4rem;
+  font-size: 0.875rem;
+  line-height: 1.35;
+  color: #9FB4CC;
+}
+
+.menu__botao { display: none; }
+
+.menu__rota {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+/* o enlace que liga todos os nós */
+.menu__rota::before {
+  content: "";
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  left: calc(0.95rem - 1px);
+  width: 2px;
+  background: var(--cabo);
+  opacity: 0.55;
+}
+
+.menu__rota a {
+  position: relative;
+  display: grid;
+  grid-template-columns: 1.9rem 1fr;
+  gap: 0.75rem;
+  align-items: center;
+  padding: 0.4rem 0;
+  color: #DCE7F3;
+  text-decoration: none;
+  font-size: 0.9688rem;
+  line-height: 1.3;
+}
+.menu__rota a:hover { color: #FFFFFF; }
+
+.no {
+  display: grid;
+  place-items: center;
+  width: 1.9rem;
+  height: 1.9rem;
+  border: 2px solid var(--cabo);
+  border-radius: 50%;
+  background: var(--tinta);
+  font-family: var(--fonte-titulo);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  color: #FFFFFF;
+}
+.no--extra { border-radius: 0.45rem; }
+
+.menu__rota a:hover .no { border-color: var(--fibra); }
+
+.menu__rota a[aria-current="page"] { color: #FFFFFF; font-weight: 600; }
+.menu__rota a[aria-current="page"] .no {
+  background: var(--fibra);
+  border-color: var(--fibra);
+  color: var(--tinta);
+}
+
+/* ---------- área de conteúdo ---------- */
+
+.conteudo {
+  margin-left: var(--largura-menu);
+  padding: 3.5rem clamp(1.25rem, 5vw, 4.5rem) 4rem;
+}
+.conteudo > * { max-width: var(--largura-texto); }
+.conteudo--larga > * { max-width: 58rem; }
+
+.posicao {
+  margin: 0 0 0.5rem;
+  font-weight: 600;
+  color: var(--cabo);
+}
+
+h1, h2, h3 {
+  font-family: var(--fonte-titulo);
+  line-height: 1.12;
+  letter-spacing: -0.02em;
+}
+
+h1 {
+  margin: 0 0 1rem;
+  font-size: clamp(2.2rem, 5vw, 3.4rem);
+  font-weight: 800;
+}
+
+h2 {
+  position: relative;
+  margin: 3.25rem 0 0.75rem;
+  padding-top: 1.1rem;
+  font-size: 1.6rem;
+  font-weight: 700;
+}
+/* um trecho de enlace terminando em um nó, acima de cada h2 */
+h2::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 3rem;
+  height: 2px;
+  background: var(--cabo);
+}
+h2::after {
+  content: "";
+  position: absolute;
+  top: -4px;
+  left: 3rem;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--fibra);
+}
+
+h3 {
+  margin: 2rem 0 0.5rem;
+  font-size: 1.2rem;
+  font-weight: 700;
+}
+
+p { margin: 0 0 1rem; }
+
+.lide {
+  font-size: 1.25rem;
+  line-height: 1.5;
+  color: var(--tinta-suave);
+}
+
+/* ---------- caixa de guia (apagar depois de escrever o texto) ---------- */
+
+.guia {
+  margin: 1rem 0 1.5rem;
+  padding: 1rem 1.25rem;
+  background: var(--papel);
+  border: 1px dashed var(--linha);
+  border-left: 4px solid var(--fibra);
+  border-radius: 0.5rem;
+  font-size: 0.9688rem;
+  color: var(--tinta-suave);
+}
+.guia strong { color: var(--tinta); }
+.guia ul { margin: 0.4rem 0 0; padding-left: 1.2rem; }
+
+/* ---------- figuras ---------- */
+
+.figura {
+  margin: 1.5rem 0;
+  padding: 1rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 0.75rem;
+}
+.figura figcaption {
+  margin-top: 0.75rem;
+  font-size: 0.9rem;
+  color: var(--tinta-suave);
+}
+.figura__vazia {
+  display: grid;
+  place-items: center;
+  min-height: 14rem;
+  padding: 1rem;
+  border: 2px dashed var(--linha);
+  border-radius: 0.5rem;
+  text-align: center;
+  color: var(--tinta-suave);
+}
+
+/* ---------- tabelas ---------- */
+
+.rolagem { overflow-x: auto; }
+
+table {
+  width: 100%;
+  margin: 1rem 0 1.5rem;
+  border-collapse: collapse;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+}
+th, td {
+  padding: 0.7rem 0.9rem;
+  border-bottom: 1px solid var(--linha);
+  text-align: left;
+  vertical-align: top;
+}
+thead th {
+  background: var(--tinta);
+  color: #FFFFFF;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+}
+tbody th { font-weight: 600; width: 28%; }
+
+/* ---------- duas colunas (vantagens e desvantagens) ---------- */
+
+.colunas {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  gap: 1.25rem;
+  max-width: 58rem;
+}
+.coluna {
+  padding: 1.25rem 1.5rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-top: 4px solid var(--cabo);
+  border-radius: 0.75rem;
+}
+.coluna--contra { border-top-color: var(--fibra); }
+.coluna h3 { margin-top: 0; }
+.coluna ul { margin: 0; padding-left: 1.2rem; }
+
+/* ---------- página inicial ---------- */
+
+.capa__titulo { max-width: 16ch; }
+
+.mapa {
+  margin: 2rem 0 3rem;
+  padding: 1rem;
+  border-radius: 1rem;
+  background-color: var(--noite);
+  background-image: radial-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px);
+  background-size: 22px 22px;
+  overflow-x: auto;
+}
+.mapa svg { display: block; width: 100%; min-width: 40rem; height: auto; }
+.mapa a { text-decoration: none; }
+.mapa__forma { fill: var(--noite); stroke: var(--cabo); stroke-width: 2.5; }
+.mapa a:hover .mapa__forma,
+.mapa a:focus-visible .mapa__forma { stroke: var(--fibra); }
+.mapa__numero {
+  fill: #FFFFFF;
+  font-family: var(--fonte-titulo);
+  font-size: 14px;
+  font-weight: 700;
+}
+.mapa__rotulo {
+  fill: #DCE7F3;
+  font-family: var(--fonte-texto);
+  font-size: 14px;
+}
+.mapa__rota { fill: none; stroke: var(--cabo); stroke-width: 2.5; }
+.mapa__malha { stroke: rgba(255, 255, 255, 0.16); stroke-width: 1.5; }
+.mapa__pacote { fill: var(--fibra); }
+
+.ficha {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr));
+  gap: 1.5rem 2rem;
+  margin: 1rem 0 0;
+  padding: 1.5rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 0.75rem;
+}
+.ficha div { min-width: 0; }
+.ficha dt {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--tinta-suave);
+}
+.ficha dd { margin: 0.2rem 0 0; font-weight: 500; }
+.ficha ul { margin: 0; padding: 0; list-style: none; }
+
+/* ---------- questões ---------- */
+
+.questoes { padding: 0; list-style: none; counter-reset: questao; }
+.questao {
+  counter-increment: questao;
+  margin: 0 0 1rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-radius: 0.75rem;
+}
+.questao__pergunta {
+  margin: 0;
+  font-family: var(--fonte-titulo);
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1.3;
+}
+.questao__pergunta::before {
+  content: counter(questao) ". ";
+  color: var(--cabo);
+}
+.questao details { margin-top: 0.75rem; }
+.questao summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: var(--cabo);
+}
+.questao details p { margin: 0.6rem 0 0; }
+
+/* ---------- bibliografia ---------- */
+
+.referencias { padding-left: 1.4rem; }
+.referencias li { margin-bottom: 0.9rem; overflow-wrap: anywhere; }
+
+/* ---------- navegação anterior e próxima ---------- */
+
+.passos {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-top: 4rem;
+  padding-top: 1.5rem;
+  border-top: 1px solid var(--linha);
+}
+.passos a {
+  display: block;
+  text-decoration: none;
+  font-family: var(--fonte-titulo);
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.passos small {
+  display: block;
+  font-family: var(--fonte-texto);
+  font-weight: 500;
+  font-size: 0.875rem;
+  color: var(--tinta-suave);
+}
+.passos__proxima { margin-left: auto; text-align: right; }
+
+/* ---------- telas pequenas ---------- */
+
+@media (max-width: 56rem) {
+  .menu {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    width: auto;
+    padding: 0.9rem 1.25rem;
+    overflow: visible;
+  }
+  .menu__topo {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+  }
+  .menu__marca { margin: 0; }
+  .menu__sigla { font-size: 1.6rem; }
+  .menu__nome { display: none; }
+  .menu__botao {
+    display: block;
+    padding: 0.5rem 0.9rem;
+    border: 2px solid var(--cabo);
+    border-radius: 0.5rem;
+    background: transparent;
+    color: #FFFFFF;
+    font: 600 0.95rem var(--fonte-texto);
+    cursor: pointer;
+  }
+  .menu__rota { display: none; margin-top: 1rem; }
+  .menu--aberto .menu__rota { display: block; }
+  .conteudo { margin-left: 0; padding-top: 2.25rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+}

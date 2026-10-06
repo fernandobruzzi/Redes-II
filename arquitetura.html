@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Arquitetura | NFV</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800;900&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="assets/style.css">
+</head>
+<body>
+
+  <!-- O menu é montado pelo arquivo assets/site.js. Não precisa editar aqui. -->
+  <nav id="menu"></nav>
+  <noscript><p style="padding:1rem"><a href="index.html">Voltar ao início</a></p></noscript>
+
+  <main class="conteudo">
+
+    <header>
+      <p class="posicao" id="posicao"></p>
+      <h1>Arquitetura</h1>
+      <p class="lide">Frase de abertura da seção, em uma ou duas linhas.</p>
+    </header>
+
+    <section>
+      <h2>Visão geral</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>Diagrama da arquitetura de referência da ETSI</li>
+          <li>Os três blocos principais e como se relacionam</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+
+      <!-- FIGURA: salve a imagem em assets/img e troque o bloco "figura__vazia" pela linha comentada abaixo -->
+      <figure class="figura">
+        <div class="figura__vazia">Espaço para o diagrama da arquitetura de referência da ETSI</div>
+        <!-- <img src="assets/img/arquitetura-etsi.png" alt="Descreva o diagrama em uma frase"> -->
+        <figcaption>Legenda da figura e fonte.</figcaption>
+      </figure>
+    </section>
+
+    <section>
+      <h2>NFVI, a infraestrutura</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>Recursos físicos (computação, armazenamento, rede)</li>
+          <li>Camada de virtualização (hypervisor, por exemplo KVM)</li>
+          <li>Recursos virtuais (computação, armazenamento e rede virtuais)</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+    </section>
+
+    <section>
+      <h2>VNFs e serviços de rede</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>O que é uma função de rede e o que é uma VNF</li>
+          <li>VNF composta por vários componentes em várias VMs</li>
+          <li>Serviço de rede como encadeamento de VNFs (número, tipo e ordem)</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+    </section>
+
+    <section>
+      <h2>MANO, gerenciamento e orquestração</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>NFVO, orquestrador, e o ciclo de vida dos serviços</li>
+          <li>VNFM, gerente de VNFs, e o ciclo de vida de cada VNF (instalação, atualização, escala, término)</li>
+          <li>VIM, gerente da infraestrutura virtualizada, e o controle dos recursos físicos e virtuais</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+    </section>
+
+    <section>
+      <h2>OSS/BSS</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>Sistemas de suporte à operação e ao negócio</li>
+          <li>Como se ligam ao restante da arquitetura</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+    </section>
+
+    <section>
+      <h2>O caso do futebol na arquitetura</h2>
+      <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+        <strong>O que cobrir aqui</strong>
+        <ul>
+          <li>Qual VNF precisa crescer durante o jogo</li>
+          <li>Papel de cada bloco do MANO no aumento e na redução das instâncias</li>
+          <li>Passo a passo do início ao fim da partida</li>
+        </ul>
+      </aside>
+      <p>Escreva o texto aqui.</p>
+    </section>
+
+    <!-- Links de página anterior e próxima, montados pelo site.js -->
+    <nav id="passos"></nav>
+  </main>
+
+  <script src="assets/site.js"></script>
+</body>
+</html>

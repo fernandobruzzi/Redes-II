@@ -24,7 +24,7 @@
     </header>
 
     <section>
-      <h2>Como funcionam as redes tradicionais</h2>
+      <h2>Como funcionam os serviços de redes tradicionais</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
         <strong>O que cobrir aqui</strong>
@@ -34,7 +34,9 @@
           <li>Hardware dedicado, com software próprio de cada fabricante</li>
         </ul>
       </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>Tradicionalmente, os serviços de redes eram executados por hardware dedicado. O exemplo mais forte na área de desenvolvimento é o load balancer. Para uma empresa fazer load balancing dos seus serviços, era necessário comprar uma máquina, operá-la, em termos de hardware e de software, e mantê-la. 
+        
+      </p>
     </section>
 
     <section>
@@ -50,51 +52,52 @@
           <li>Implantação lenta e ciclo de vida curto (trocas de geração 2G, 3G, 4G)</li>
         </ul>
       </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>
+        Ainda no exemplo do Load Balancer, é muito claro ver os problemas que surgem com o paradigma de hardware dedicado. Para começar, é claro o alto custo inicial de aquisição do hardware, o que estabelece um custo capital alto.<br>
+        Além disso, a necessidade de operar e manter estabelece custos de energia e infraestrutura e custos de expertise dedicada para lidar com o hardware e com seu software dedicados. <br>
+        Outro ponto é que, por se tratar de uma função associada à hardware, não tinha escalabilidade fina: deve se comprar máquinas para o pico máximo, e não o médio.<br>
+        Porém, os problemas não param aí: pelo fato de o serviço de rede ser associado ao software, o ciclo de desenvolvimento era muito lento, pois dependia de desenvolver um hardware novo para cada mudança de funcionalidade ou atualização, ou até mesmo novo serviço. <br>
+        Isso criava uma barreira enorme para a inovação e o desenvolvimento de novas tecnologias, além de limitar essa capacidade à poucas empresas (não era open source friendly) </p>
     </section>
 
     <section>
-      <h2>O caso do futebol</h2>
+      <h2>O exemplo da escalabilidade</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Partida importante transmitida por streaming, com pico de audiência</li>
-          <li>Caminho dos pacotes do servidor até o torcedor e os dispositivos atravessados</li>
-          <li>Em qual dispositivo o limite de capacidade é atingido e o que acontece com o serviço</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+        <aside class="guia">
+          Imagine uma grande rede corporativa que investiu em um firewall físico de borda de um fabricante renomado, operando com um sistema proprietário fechado.<br>
+          Durante os primeiros anos, o equipamento atende perfeitamente às demandas básicas de segurança e proteção da empresa.<br>
+          Porém, a equipe de engenharia decide modernizar a operação e precisa integrar esse firewall a uma nova ferramenta interna de automação e resposta a incidentes.<br>
+          <ul>
+            <li><strong>Problema:</strong> A "caixa preta" do hardware não oferece as APIs necessárias para essa comunicação e a empresa não pode instalar softwares de terceiros para adaptar a máquina.</li>
+            <li><strong>Solução:</strong> A única saída da empresa é abrir um chamado junto ao fabricante e pedir para que essa integração seja incluída em uma futura atualização de firmware.</li>
+            <li><strong>Resultado:</strong> A empresa entra em uma fila de espera, aguardando meses por uma atualização que pode exigir a compra de licenças caríssimas ou sequer entrar no planejamento do fornecedor.</li>
+            <li><strong>Consequência:</strong> A equipe fica de mãos atadas e a inovação tecnológica da empresa é travada. Além de não conseguir evoluir o sistema, a manutenção diária do equipamento continua exigindo profissionais com certificações caras e exclusivas daquela marca.</li>
+          </ul>
+          Esse é o problema da dependência do fabricante (vendor lock-in) no paradigma de hardware dedicado.
+        </aside>
     </section>
 
     <section>
-      <h2>Por que a solução tradicional não resolve</h2>
+      <h2>O exemplo do ciclo de vida e infraestrutura</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Dimensionar o hardware para o pico e deixá-lo ocioso no resto do tempo</li>
-          <li>Trocar o equipamento por um maior, com custo e demora</li>
-          <li>Necessidade de responder à demanda de forma dinâmica e automática</li>
-        </ul>
+      Imagine uma operadora de telecomunicações que, após investir pesadamente em uma infraestrutura 4G, descobre que uma nova geração tecnológica está a caminho.<br>
+      Essa nova tecnologia muda o paradigma de transmissão e impede o reaproveitamento do hardware já instalado.<br>
+      Isso expõe alguns problemas:
+      <ul>
+        <li>Como a rede 4G continuará em operação para atender clientes legados, a empresa precisará arcar com o custo de manter duas infraestruturas físicas simultaneamente.</li>
+        <li>Será obrigada a comprar novos equipamentos para o 5G, ciente de que eles também já nascem com um prazo de validade</li>
+      </ul>
+      Esse cenário evidencia um problema estrutural: a inovação tecnológica (software e protocolos) avança em um ritmo muito mais acelerado e com custos menores do que o ciclo de fabricação e substituição de hardwares especializados.
       </aside>
-      <p>Escreva o texto aqui.</p>
     </section>
 
     <section>
-      <h2>O caso do futebol resolvido com NFV</h2>
+      <h2>O exemplo da dependência do fabricante?</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Funções de rede executadas como software em máquinas virtuais</li>
-          <li>Início do jogo, com criação de novas instâncias para absorver a demanda</li>
-          <li>Fim do jogo, com liberação dos recursos</li>
-          <li>Quem decide e executa esse aumento (ligação com a página de arquitetura)</li>
-          <li>Limite que continua existindo (capacidade física dos servidores e dos enlaces)</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      Imagine uma grande rede corporativa que investe em um firewall físico de borda de um fabricante renomado. Esse equipamento roda um sistema operacional proprietário, utiliza processadores específicos e possui uma interface de configuração única no mercado.
+      Dois anos após a compra, a equipe de engenharia decide integrar esse firewall a uma nova ferramenta interna de automação e resposta a incidentes. Porém, a caixa preta do hardware não oferece as APIs necessárias para essa comunicação. A empresa fica de mãos atadas: ela não pode modificar o código do equipamento ou instalar um software de terceiros nele. A única saída é abrir um chamado junto ao fabricante e torcer para que a funcionalidade seja incluída em uma futura atualização de firmware — o que pode levar meses, exigir a compra de licenças adicionais caríssimas ou simplesmente nunca entrar no roadmap de desenvolvimento da marca.      </aside>
     </section>
 
     <!-- Links de página anterior e próxima, montados pelo site.js -->

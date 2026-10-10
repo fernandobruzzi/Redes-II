@@ -20,29 +20,35 @@
     <header>
       <p class="posicao" id="posicao"></p>
       <h1>Problema</h1>
-      <p class="lide">Frase de abertura da seção, em uma ou duas linhas.</p>
+      <p class="lide">Nesta sessão iremos explorar alguns problemas que podem ocorrer quando não se tem acesso a tecnologia NFV.</p>
     </header>
 
     <section>
       <h2>Como funcionam os serviços de redes tradicionais</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
+      <!-- <aside class="guia">
         <strong>O que cobrir aqui</strong>
         <ul>
           <li>O que são middleboxes e que funções desempenham na rede</li>
           <li>Dispositivos envolvidos (roteadores, switches, firewalls, balanceadores de carga)</li>
           <li>Hardware dedicado, com software próprio de cada fabricante</li>
         </ul>
-      </aside>
-      <p>Tradicionalmente, os serviços de redes eram executados por hardware dedicado. O exemplo mais forte na área de desenvolvimento é o load balancer. Para uma empresa fazer load balancing dos seus serviços, era necessário comprar uma máquina, operá-la, em termos de hardware e de software, e mantê-la. 
-        
+      </aside> -->
+      <p>
+      Tradicionalmente, os serviços de redes eram executados por hardware dedicado. 
+      O exemplo mais forte na área de desenvolvimento é o load balancer. Para uma empresa fazer 
+      <span class="balaozinho">load balancing ℹ️
+      <span class="texto-balaozinho">
+        <strong>Load balancing</strong> (balanceamento de carga) é a distribuição do tráfego de rede entre vários servidores para evitar sobrecargas e lentidão.
+      </span>
+    </span>      dos seus serviços, era necessário comprar uma máquina, operá-la, em termos de hardware e de software, e mantê-la. 
       </p>
     </section>
 
     <section>
       <h2>Limitações dos dispositivos dedicados</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
+      <!-- <aside class="guia">
         <strong>O que cobrir aqui</strong>
         <ul>
           <li>Custo de aquisição</li>
@@ -51,13 +57,13 @@
           <li>Dependência do fabricante para atualizações</li>
           <li>Implantação lenta e ciclo de vida curto (trocas de geração 2G, 3G, 4G)</li>
         </ul>
-      </aside>
+      </aside> -->
       <p>
         Ainda no exemplo do Load Balancer, é muito claro ver os problemas que surgem com o paradigma de hardware dedicado. Para começar, é claro o alto custo inicial de aquisição do hardware, o que estabelece um custo capital alto.<br>
         Além disso, a necessidade de operar e manter estabelece custos de energia e infraestrutura e custos de expertise dedicada para lidar com o hardware e com seu software dedicados. <br>
         Outro ponto é que, por se tratar de uma função associada à hardware, não tinha escalabilidade fina: deve se comprar máquinas para o pico máximo, e não o médio.<br>
         Porém, os problemas não param aí: pelo fato de o serviço de rede ser associado ao software, o ciclo de desenvolvimento era muito lento, pois dependia de desenvolver um hardware novo para cada mudança de funcionalidade ou atualização, ou até mesmo novo serviço. <br>
-        Isso criava uma barreira enorme para a inovação e o desenvolvimento de novas tecnologias, além de limitar essa capacidade à poucas empresas (não era open source friendly) </p>
+        Isso criava uma barreira enorme para a inovação e o desenvolvimento de novas tecnologias, além de limitar essa capacidade à poucas empresas (não era open source friendly). </p>
     </section>
 
     <section>
@@ -93,7 +99,7 @@
     </section>
 
     <section>
-      <h2>O exemplo da dependência do fabricante?</h2>
+      <h2>O exemplo da dependência do fabricante</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
       Imagine uma grande rede corporativa que investe em um firewall físico de borda de um fabricante renomado. Esse equipamento roda um sistema operacional proprietário, utiliza processadores específicos e possui uma interface de configuração única no mercado.

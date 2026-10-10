@@ -444,3 +444,49 @@ tbody th { font-weight: 600; width: 28%; }
 @media (prefers-reduced-motion: reduce) {
   html { scroll-behavior: auto; }
 }
+
+/* ---------- balão de explicação (tooltip) ---------- */
+
+.balaozinho {
+  position: relative;
+  display: inline-block;
+  cursor: help;
+  border-bottom: 1px dotted var(--tinta); /* Usa a cor do texto do seu próprio tema */
+}
+
+.balaozinho .texto-balaozinho {
+  visibility: hidden;
+  width: 250px;
+  background-color: var(--tinta); /* Usa a cor escura do seu tema */
+  color: #FFFFFF;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 10; /* Garante que fique por cima de tudo */
+  bottom: 150%; 
+  left: 50%;
+  margin-left: -125px; 
+  opacity: 0;
+  transition: opacity 0.3s; 
+  font-size: 0.875rem; /* Ajustado para bater com as fontes do seu projeto */
+  box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
+}
+
+/* A setinha apontando para baixo */
+.balaozinho .texto-balaozinho::after {
+  content: "";
+  position: absolute;
+  top: 100%; 
+  left: 50%;
+  margin-left: -5px;
+  border-width: 5px;
+  border-style: solid;
+  border-color: var(--tinta) transparent transparent transparent; /* Usa a cor escura do seu tema */
+}
+
+/* Faz o balão aparecer quando passa o mouse */
+.balaozinho:hover .texto-balaozinho {
+  visibility: visible;
+  opacity: 1;
+}

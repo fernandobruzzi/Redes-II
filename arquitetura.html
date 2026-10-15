@@ -20,96 +20,81 @@
     <header>
       <p class="posicao" id="posicao"></p>
       <h1>Arquitetura</h1>
-      <p class="lide">Frase de abertura da seção, em uma ou duas linhas.</p>
+      <p class="lide">A ETSI organiza a NFV em três grandes domínios: as funções de rede virtualizadas, a infraestrutura onde elas rodam e o sistema que gerencia e orquestra tudo isso.</p>
     </header>
 
     <section>
       <h2>Visão geral</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Diagrama da arquitetura de referência da ETSI</li>
-          <li>Os três blocos principais e como se relacionam</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>A arquitetura de referência da NFV (<em>Network Functions Virtualisation</em>, virtualização de funções de rede) foi definida pelo ETSI (<em>European Telecommunications Standards Institute</em>), o instituto europeu de padronização em telecomunicações, no documento GS NFV 002. A ideia central é implementar as funções de rede como entidades puramente de software, que rodam sobre uma infraestrutura comum, em vez de depender de equipamentos dedicados. Para isso, a ETSI identifica três domínios principais de trabalho.</p>
+      <p>O primeiro são as <strong>VNFs</strong> (<em>Virtualised Network Functions</em>, funções de rede virtualizadas), que são a implementação em software de uma função de rede capaz de rodar sobre a infraestrutura. O segundo é a <strong>NFVI</strong> (<em>NFV Infrastructure</em>, infraestrutura de NFV), que reúne os recursos físicos e a forma como eles são virtualizados, e que dá suporte à execução das VNFs. O terceiro é o <strong>MANO</strong> (<em>NFV Management and Orchestration</em>, gerenciamento e orquestração de NFV), responsável pela orquestração e pelo ciclo de vida dos recursos físicos e de software que sustentam a virtualização, e também pelo ciclo de vida das VNFs.</p>
+      <p>A relação entre os três é de camadas: as VNFs rodam em cima da NFVI, e o MANO observa e controla as duas. No diagrama completo da ETSI aparecem ainda outros blocos: o <strong>EM</strong> (<em>Element Management</em>, gerenciamento de elementos), que faz a gerência tradicional de uma ou mais VNFs; os sistemas <strong>OSS/BSS</strong> da operadora; e um conjunto de descrições de serviços, VNFs e infraestrutura, isto é, modelos e templates que o MANO usa para saber o que implantar e como. Na versão completa, os blocos se comunicam por interfaces chamadas <em>pontos de referência</em>, como Os-Ma, Or-Vnfm e Nf-Vi. A figura abaixo mostra uma versão simplificada, em camadas.</p>
 
       <!-- FIGURA: salve a imagem em assets/img e troque o bloco "figura__vazia" pela linha comentada abaixo -->
       <figure class="figura">
-        <div class="figura__vazia">Espaço para o diagrama da arquitetura de referência da ETSI</div>
-        <!-- <img src="assets/img/arquitetura-etsi.png" alt="Descreva o diagrama em uma frase"> -->
-        <figcaption>Legenda da figura e fonte.</figcaption>
+        <img src="assets/img/Imagem arquitetura NFV (ETSI).png" alt="Diagrama em camadas da NFV: OSS/BSS no topo, VNFs no meio, a NFVI embaixo com a camada de virtualização separando recursos físicos (computação, armazenamento e rede) dos virtuais, e o MANO ao lado, cobrindo as camadas.">
+        <figcaption>Imagem da arquitetura NFV do modelo de referência da ETSI (GS NFV 002 v1.2.1, Figura 4)</a</a>.</figcaption>
       </figure>
     </section>
 
     <section>
       <h2>NFVI, a infraestrutura</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Recursos físicos (computação, armazenamento, rede)</li>
-          <li>Camada de virtualização (hypervisor, por exemplo KVM)</li>
-          <li>Recursos virtuais (computação, armazenamento e rede virtuais)</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>Segundo a ETSI, a NFVI é a totalidade dos componentes de hardware e de software que formam o ambiente onde as VNFs são implantadas, gerenciadas e executadas. Ela pode estar espalhada por vários locais, chamados NFVI-PoPs (<em>Points of Presence</em>, pontos de presença), e a rede que liga esses locais também faz parte da infraestrutura. Do ponto de vista de uma VNF, a camada de virtualização e o hardware aparecem como uma coisa só: um fornecedor dos recursos virtuais de que ela precisa.</p>
+      <p>Na base estão os <strong>recursos físicos</strong> de computação, armazenamento e rede. O hardware de computação é, em princípio, do tipo COTS (<em>Commercial Off-The-Shelf</em>, ou seja, servidores comuns de mercado), e não equipamentos feitos sob medida. O armazenamento pode ser compartilhado na rede, como em um NAS (<em>Network Attached Storage</em>), ou ficar no próprio servidor. Computação e armazenamento costumam ser organizados em <em>pools</em>, isto é, conjuntos compartilhados. Já a parte de rede é composta por funções de comutação, como roteadores, e por enlaces com ou sem fio. A ETSI distingue duas redes: a rede interna do NFVI-PoP, que interliga os servidores e o armazenamento de um mesmo local, e a rede de transporte, que liga os NFVI-PoPs entre si e a outras redes.</p>
+      <p>Acima do hardware fica a <strong>camada de virtualização</strong>. Ela abstrai e divide logicamente os recursos físicos, permite que o software da VNF use essa infraestrutura virtualizada e entrega à VNF os recursos virtuais de que ela precisa para executar. Com isso, o software fica desacoplado do hardware e pode ser instalado em máquinas físicas diferentes. Para computação e armazenamento, isso normalmente é feito com um <em>hypervisor</em> e VMs (máquinas virtuais). Um exemplo de hypervisor citado pela Red Hat é o KVM (<em>Kernel-based Virtual Machine</em>), embora ela também mencione plataformas de contêineres como alternativa. A ETSI não impõe nenhuma tecnologia específica: o hypervisor é apenas a solução típica, e uma VNF também pode rodar diretamente sobre um servidor não virtualizado.</p>
+      <p>O resultado são os <strong>recursos virtuais</strong>: computação, armazenamento e rede virtuais, que é o que as VNFs efetivamente enxergam. No caso da rede, a camada de virtualização cria caminhos virtuais que conectam as VMs de uma VNF ou VNFs diferentes, usando técnicas como VLAN (<em>Virtual Local Area Network</em>) e VxLAN (<em>Virtual Extensible LAN</em>), que isolam o tráfego em redes virtuais sobre a mesma rede física.</p>
     </section>
 
     <section>
       <h2>VNFs e serviços de rede</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>O que é uma função de rede e o que é uma VNF</li>
-          <li>VNF composta por vários componentes em várias VMs</li>
-          <li>Serviço de rede como encadeamento de VNFs (número, tipo e ordem)</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>Uma <strong>função de rede</strong> (NF, <em>Network Function</em>) é um bloco que executa uma tarefa específica no tratamento do tráfego. Exemplos citados pela ETSI vão de funções conhecidas, como servidores DHCP (<em>Dynamic Host Configuration Protocol</em>) e firewalls, até elementos do núcleo de redes móveis. Na rede tradicional, cada NF é uma combinação de software e hardware de um fabricante, o chamado equipamento ou elemento de rede. A <strong>VNF</strong> é a versão virtualizada dessa mesma função. A ETSI espera que a VNF e a versão física (PNF, <em>Physical Network Function</em>) tenham o mesmo comportamento funcional e as mesmas interfaces externas: muda onde a função roda, não o que ela faz.</p>
+      <p>Uma VNF não precisa ser um bloco único. Ela pode ser formada por vários componentes internos, e cada componente pode ficar numa VM diferente. Em outros casos, a VNF inteira cabe em uma só VM. Essa divisão interna é o que permite ajustar a capacidade de uma VNF com mais precisão, adicionando apenas a parte que está sobrecarregada.</p>
+      <p>Um <strong>serviço de rede</strong> de ponta a ponta, como acesso à internet, dados móveis ou uma VPN (<em>Virtual Private Network</em>), é descrito pela ETSI como um <em>grafo de encaminhamento</em>: as NFs são os nós, e as ligações lógicas entre elas são as arestas. O caso mais simples é uma cadeia, em que o tráfego passa por uma função após a outra. Um exemplo dado pela ETSI é a cadeia firewall → NAT (<em>Network Address Translation</em>) → balanceador de carga, no caminho até um servidor web. Quando as funções são virtualizadas, esse grafo passa a se chamar VNF-FG (<em>VNF Forwarding Graph</em>), e definir um serviço é, na prática, escolher quantas VNFs usar, de quais tipos e em que ordem o tráfego vai percorrê-las. A Wikipédia chama esse encadeamento de <em>service chaining</em>.</p>
     </section>
 
     <section>
       <h2>MANO, gerenciamento e orquestração</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>NFVO, orquestrador, e o ciclo de vida dos serviços</li>
-          <li>VNFM, gerente de VNFs, e o ciclo de vida de cada VNF (instalação, atualização, escala, término)</li>
-          <li>VIM, gerente da infraestrutura virtualizada, e o controle dos recursos físicos e virtuais</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>O MANO é a parte da arquitetura que torna a NFV automática. Sem ele, criar ou remover uma VNF seria tão manual quanto instalar um equipamento novo. Ele é dividido em três blocos funcionais, cada um responsável por um nível diferente: o serviço, a VNF e a infraestrutura.</p>
+      <p>O <strong>NFVO</strong> (<em>NFV Orchestrator</em>, orquestrador de NFV) fica no topo. Segundo a ETSI, ele orquestra e gerencia os recursos de infraestrutura e de software e realiza os serviços de rede sobre a NFVI. Na prática, é quem cuida do ciclo de vida dos serviços de rede: monta o VNF-FG, envia ao VNFM as configurações necessárias para que cada VNF funcione dentro do serviço e autoriza ou valida os pedidos de recursos.</p>
+      <p>O <strong>VNFM</strong> (<em>VNF Manager</em>, gerente de VNFs) cuida do ciclo de vida de cada VNF individualmente: instanciação (criar), atualização, consulta, escala (aumentar ou diminuir) e término (remover). Pode existir um VNFM para cada VNF ou um único VNFM atendendo várias delas. Quando precisa de mais recursos, o VNFM conversa com o NFVO pelo ponto de referência Or-Vnfm (pedidos de autorização e reserva) e com o VIM pelo ponto Vi-Vnfm (pedidos de alocação).</p>
+      <p>O <strong>VIM</strong> (<em>Virtualised Infrastructure Manager</em>, gerente da infraestrutura virtualizada) é o mais próximo do hardware. Ele controla a interação das VNFs com os recursos de computação, armazenamento e rede sob sua autoridade. Entre suas tarefas estão manter o inventário dos recursos e dos hypervisors, alocar VMs nos hypervisors com a conectividade necessária, aumentar os recursos de VMs e recuperar recursos que não estão mais em uso, e coletar informações de falhas e de capacidade. Ele age sobre a NFVI pelo ponto Nf-Vi e pode haver mais de um VIM na mesma arquitetura.</p>
     </section>
 
     <section>
       <h2>OSS/BSS</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Sistemas de suporte à operação e ao negócio</li>
-          <li>Como se ligam ao restante da arquitetura</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>OSS (<em>Operations Support Systems</em>, sistemas de suporte à operação) e BSS (<em>Business Support Systems</em>, sistemas de suporte ao negócio) são os sistemas que a operadora já usa para administrar a rede e o negócio. De forma geral, o OSS cuida do lado técnico, como o monitoramento e a ativação de serviços, e o BSS cuida do lado comercial, como clientes e cobrança.</p>
+      <p>A ligação com o restante da arquitetura acontece pelo ponto de referência Os-Ma, entre o OSS/BSS e o MANO. Por ele passam pedidos de ciclo de vida de serviços de rede e de VNFs, troca de políticas, informações de estado, dados de capacidade e inventário da NFVI e registros de uso para contabilização. Na prática, é por esse caminho que uma decisão de negócio ("vamos oferecer este serviço") vira uma ação técnica no MANO. Além disso, o OSS/BSS também se comunica com os EMs, que fazem a gerência tradicional das VNFs.</p>
     </section>
 
     <section>
       <h2>O caso do futebol na arquitetura</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Qual VNF precisa crescer durante o jogo</li>
-          <li>Papel de cada bloco do MANO no aumento e na redução das instâncias</li>
-          <li>Passo a passo do início ao fim da partida</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      <p>Voltando à partida transmitida por streaming: o serviço de rede que leva o vídeo até o torcedor é uma cadeia de VNFs, por exemplo firewall → balanceador de carga → servidores de conteúdo. A função que mais sofre com o pico é o <strong>balanceador de carga</strong>, porque todo o tráfego dos torcedores passa por ele antes de ser distribuído entre os servidores. É essa VNF que precisa crescer durante o jogo.</p>
+      <p><strong>Antes do jogo.</strong> O serviço roda com poucas instâncias do balanceador, suficientes para a audiência normal. O VIM acompanha o uso dos recursos da NFVI, e o VNFM acompanha o estado das VNFs.</p>
+      <p><strong>Começo da partida.</strong> A audiência dispara e as instâncias do balanceador chegam perto do limite. O VNFM, responsável pela escala dessa VNF, decide que é preciso aumentar a capacidade e pede ao NFVO autorização e reserva de recursos (ponto Or-Vnfm). O NFVO, que tem a visão do serviço inteiro e dos recursos disponíveis, valida o pedido.</p>
+      <p><strong>Criação das novas instâncias.</strong> Com a autorização, o VNFM pede ao VIM a alocação (ponto Vi-Vnfm). O VIM escolhe os servidores físicos, cria as novas VMs nos hypervisors e as conecta às redes virtuais certas (ponto Nf-Vi). Em seguida, o VNFM configura as novas instâncias do balanceador, e o NFVO garante que elas façam parte do VNF-FG do serviço, para que o tráfego passe a ser dividido entre elas.</p>
+      <p><strong>Durante o jogo.</strong> O ciclo pode se repetir se a audiência continuar subindo, por exemplo num segundo tempo decisivo. O torcedor não percebe nada disso: para ele, o vídeo simplesmente continua funcionando.</p>
+      <p><strong>Fim da partida.</strong> A audiência cai e as instâncias extras ficam ociosas. O VNFM decide reduzir a escala, retira as instâncias que sobraram do serviço e pede o término delas. O VIM então desliga as VMs e recupera os recursos, que voltam para o pool compartilhado e podem ser usados por outras VNFs. O registro de uso pode seguir para o OSS/BSS (ponto Os-Ma), para fins de contabilização.</p>
+      <p>Um limite continua existindo: o MANO só consegue crescer até onde a NFVI tem capacidade física, ou seja, servidores e enlaces disponíveis. A diferença em relação ao modelo tradicional é que essa capacidade é compartilhada e pode ser realocada automaticamente, em vez de ficar parada num equipamento dedicado esperando o próximo jogo.</p>
+    </section>
+
+    <section>
+      <h2>Evolução do NFV</h2>
+      <p>A arquitetura descrita nas seções anteriores não surgiu pronta. A NFV foi apresentada como conceito em um white paper de outubro de 2012, assinado por doze grandes operadoras de telecomunicações. Em resposta a esse documento, a ETSI criou o ISG NFV (<em>Industry Specification Group</em>, grupo de especificação da indústria), que desde então publica as especificações da NFV em <em>releases</em>, isto é, versões sucessivas. Cada release teve um objetivo principal:</p>
+      <ul>
+        <li><strong>Release 1:</strong> criou as bases, com uma terminologia aceita pela indústria, o framework arquitetural e os requisitos de alto nível de um sistema NFV. Muitas provas de conceito (PoCs) de empresas de telecomunicações e de TI foram construídas sobre ela.</li>
+        <li><strong>Release 2:</strong> tratou da interoperabilidade. Com as funções de rede separadas do hardware, as VNFs precisam ser empacotadas de forma independente do fornecedor e funcionar sobre infraestruturas e sistemas de gerenciamento desenvolvidos por outras empresas.</li>
+        <li><strong>Release 3:</strong> focou em questões operacionais, como o gerenciamento de vários locais, a atualização de software e a resolução de problemas, porque as implantações estavam deixando de ser testes de campo e passando a ter grande escala.</li>
+        <li><strong>Release 4:</strong> teve como lema "<em>cloudification and simplification</em>" (adoção da nuvem e simplificação). A ideia era aproveitar os avanços da computação em nuvem para simplificar as implantações, e as duas frentes principais foram o gerenciamento de contêineres e as técnicas de rede autônoma no MANO.</li>
+        <li><strong>Release 5:</strong> iniciada em 2021, tem como lema "<em>consolidation and ecosystem</em>" (consolidação e ecossistema). Ela consolida temas operacionais, como eficiência energética, gerenciamento de configuração e de falhas, multi-inquilinato e conectividade, e passa a considerar tecnologias de outras organizações do ecossistema, como a O-RAN Alliance.</li>
+      </ul>
+
+      <figure class="figura">
+        <img src="assets/img/Evolução da arquitetura NFV.jpg" alt="Linha do tempo da arquitetura ETSI NFV em três fases: 2013–2017, com o diagrama original de VNFs, NFVI e MANO; 2018–2020, com a inclusão do WIM e da interface Or-Or; e 2021 em diante, com clusters de contêineres (CIS/CISM) e gerenciamento por intenção. Abaixo, marcos como o início do ETSI NFV (2013), o lançamento do OSM (2016), o ONAP (2017), a O-RAN Alliance (2018) e o gerenciamento autônomo (2021).">
+        <figcaption>Linha do tempo da evolução da arquitetura ETSI NFV. Fonte: ETSI White Paper No. 53, "In the Light of Ten Years from the NFV Introductory Whitepaper", fev. 2023, p. 7.</figcaption>
+      </figure>
+
+      <p>Uma mudança ilustra bem essa evolução: segundo a ETSI, as funções do núcleo das redes 4G (EPC) foram implantadas principalmente em máquinas virtuais, enquanto a maioria das soluções 5G hoje usa contêineres. A divisão em VNFs, NFVI e MANO continua valendo. O que muda é a tecnologia da camada de virtualização, que é justamente o ponto em que a ETSI não impõe uma solução específica.</p>
+
+      <p>Fonte: ETSI. <em>White Paper No. 53: In the Light of Ten Years from the NFV Introductory Whitepaper</em>. 1. ed. Sophia Antipolis: ETSI, fev. 2023. ISBN 979108262074.</p>
     </section>
 
     <!-- Links de página anterior e próxima, montados pelo site.js -->

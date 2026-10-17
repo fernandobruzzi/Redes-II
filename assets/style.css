@@ -490,3 +490,38 @@ tbody th { font-weight: 600; width: 28%; }
   visibility: visible;
   opacity: 1;
 }
+
+/* ---------- lista de objetivos ---------- */
+
+/* A lista inteira */
+.objetivos {
+  list-style: none;          /* tira as bolinhas padrão da lista */
+  margin: 1rem 0 1.5rem;     /* espaço acima e abaixo da lista */
+  padding: 0;                /* tira o recuo padrão à esquerda */
+  display: grid;             /* organiza os itens em grade, um embaixo do outro */
+  gap: 1rem;                 /* espaço entre um item e outro */
+}
+
+/* Cada objetivo vira um cartão */
+.objetivos li {
+  padding: 1rem 1.25rem;                  /* espaço interno do cartão */
+  background: var(--papel);               /* fundo branco, igual às outras caixas */
+  border: 1px solid var(--linha);         /* borda fina cinza-azulada */
+  border-left: 4px solid var(--cabo);     /* faixa azul grossa à esquerda, como um enlace */
+  border-radius: 0.75rem;                 /* cantos arredondados */
+}
+
+/* O título de cada objetivo (o texto em negrito) */
+.objetivos li > strong {
+  display: block;                          /* faz o título ocupar a linha toda, empurrando o texto para baixo */
+  margin-bottom: 0.25rem;                  /* pequeno espaço entre título e explicação */
+  font-family: var(--fonte-titulo);        /* mesma fonte dos títulos do site */
+  font-size: 1.1rem;                       /* um pouco maior que o texto normal */
+  color: var(--tinta);                     /* cor escura principal */
+}
+
+/* O parágrafo de explicação dentro do cartão */
+.objetivos li p {
+  margin: 0;                               /* remove o espaço extra que todo <p> tem embaixo */
+  color: var(--tinta-suave);               /* cor um pouco mais clara, para diferenciar do título */
+}

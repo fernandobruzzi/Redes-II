@@ -20,61 +20,149 @@
     <header>
       <p class="posicao" id="posicao"></p>
       <h1>Definição</h1>
-      <p class="lide">Frase de abertura da seção, em uma ou duas linhas.</p>
+      <p class="lide">O que é NFV, quais seus objetivos e quais conceitos a definem.</p>
     </header>
 
     <section>
       <h2>O que é NFV</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
+      <!-- <aside class="guia">
         <strong>O que cobrir aqui</strong>
         <ul>
           <li>Definição em uma ou duas frases</li>
           <li>Ideia central de virtualizar o que antes era feito em hardware dedicado</li>
         </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      </aside> -->
+      <p>NFV é um movimento de virtualizar as funções de rede que antes eram feitas em equipamentos de hardware dedicado. 
+        De certa forma, é a lógica da computação em nuvem aplicada às redes de computadores.
+      </p>
+
+      <figure class="figura">
+      <img
+        src="assets/img/definicaoimg1.png"
+        alt="Visão geral da NFV"
+      >
+      <figcaption>
+        Figura 1. Visão da Virtualização de Funções de Rede.
+        Fonte: ETSI (2012), <cite>Network Functions Virtualisation: An Introduction, Benefits, Enablers, Challenges &amp; Call for Action</cite>.
+        <a href="bibliografia.html">Ver referência completa</a>.
+      </figcaption>
+    </figure>
     </section>
 
-    <section>
+      <section>
       <h2>Objetivos</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Virtualizar funções de rede</li>
-          <li>Desacoplar a função do hardware subjacente</li>
-          <li>Provisionar e gerenciar serviços de forma eficiente, flexível e automatizada</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+
+      <ul class="objetivos">
+        <li>
+          <strong>Virtualizar funções de rede</strong>
+          <p>Executar em software as mesmas funções que um
+            <span class="balaozinho">middlebox ℹ️
+              <span class="texto-balaozinho">
+                <strong>Middlebox</strong> é um dispositivo de rede intermediário, como firewall, roteador ou servidor DHCP.
+              </span>
+            </span>
+            realizaria, sem depender de um equipamento dedicado.
+          </p>
+        </li>
+
+        <li>
+          <strong>Desacoplar a função do hardware</strong>
+          <p>Separar a lógica de operação das funções de rede do hardware subjacente, permitindo que elas rodem em servidores comuns, de qualquer fabricante.</p>
+        </li>
+
+        <li>
+          <strong>Tornar o gerenciamento eficiente, flexível e automatizado</strong>
+          <p>Com a virtualização, os recursos usados podem ser aumentados ou reduzidos conforme a demanda, e novos serviços podem ser provisionados sem instalar equipamentos físicos.</p>
+        </li>
+      </ul>
     </section>
 
     <section>
       <h2>Conceitos de base</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
+      <!-- <aside class="guia">
         <strong>O que cobrir aqui</strong>
         <ul>
           <li>Virtualização, máquina virtual e contêiner</li>
           <li>Hypervisor</li>
           <li>Hardware convencional (COTS) em contraste com hardware dedicado</li>
         </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      </aside> -->
+      <p>Os conceitos de base para a NFV são todos derivados da computação em nuvem e virtualização — especificamente o uso de hypervisors, switches Ethernet virtuais, 
+        NICs Ethernet inteligentes e drivers Ethernet poll-mode. Além disso, são necessárias APIs abertas para a integração com a infraestrutura de nuvem.</p>
+
+              <ul class="objetivos">
+        <li>
+          <strong>Hypervisor</strong>
+          <p>Um software que possibilita que várias máquinas virtuais sejam executadas em um único computador. Dessa maneira, um mesmo servidor físico pode rodar diversas funções 
+            de rede de forma simultânea e eficiente, desde que o hypervisor gerencie o compartilhamento dos recursos físicos de computação corretamente.
+          </p>
+        </li>
+
+          <li>
+          <strong>Switches de Ethernet virtuais</strong>
+          <p>Software que opera junto ao hypervisor para conectar o tráfego das diversas máquinas virtuais entre si e com as interfaces físicas da rede Ethernet (e, porventura, à internet).</p>
+        </li>
+
+          <li>
+          <strong>NICs de Ethernet inteligentes</strong>
+          <p>Placa de rede que, além de permitir a conexão à rede Ethernet, realiza processamento embutido (como compartilhamento de carga), 
+            reduzindo a sobrecarga no processador principal (CPU). É essencial para o alto desempenho em redes de datacenters.</p>
+        </li>
+
+          <li>
+          <strong>Poll-mode Ethernet drivers</strong>
+          <p>Drivers e APIs que operam consultando constantemente a placa de rede em busca de novos pacotes (polling), em vez de aguardar por interrupções do sistema. 
+            Isso mantém o núcleo da CPU dedicado a verificar as filas do dispositivo sem parar, acelerando drasticamente o processamento de pacotes.</p>
+        </li>
+      </ul>
     </section>
 
     <section>
       <h2>Exemplos de funções de rede virtualizadas</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
+      <!-- <aside class="guia">
         <strong>O que cobrir aqui</strong>
         <ul>
           <li>Firewall, DHCP, VPN gateway, balanceador de carga</li>
           <li>Núcleo de rede móvel (4G e 5G)</li>
         </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
+      </aside> -->
+      <p>São diversas as funções de rede que podem ser virtualizadas, as mais comuns são:</p>
+      <ul class="objetivos">
+        
+        <li><strong>
+          Firewall
+        </strong>
+          <p>
+            Sistema que monitora e controla tudo o que passa na rede seguindo um conjunto de regras pré-estabelecidas para aumentar a segurança da rede.
+          </p>
+      </li>
+      <li><strong>
+          DHCP
+        </strong>
+          <p>
+          Sistema que atribui endereços IP de maneira dinâmica.
+          </p>
+      </li>
+
+      <li><strong>
+          Balanceador de carga
+        </strong>
+          <p>
+            Distribui o tráfego da rede entre vários servidores para evitar sobrecargas e lentidão.
+          </p>
+      </li>
+
+      <li><strong>
+          Roteador
+        </strong>
+          <p>
+            Recebe e envia pacotes dentro de uma rede.
+          </p>
+      </li>
+      </ul>
     </section>
 
     <!-- Links de página anterior e próxima, montados pelo site.js -->

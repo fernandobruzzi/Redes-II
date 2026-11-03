@@ -472,6 +472,9 @@ tbody th { font-weight: 600; width: 28%; }
   font-size: 0.875rem; /* Ajustado para bater com as fontes do seu projeto */
   box-shadow: 0px 4px 6px rgba(0,0,0,0.2);
 }
+.balaozinho .texto-balaozinho strong {
+  color: #FFFFFF; /* Força o negrito a ficar branco e não sumir no fundo */
+}
 
 /* A setinha apontando para baixo */
 .balaozinho .texto-balaozinho::after {

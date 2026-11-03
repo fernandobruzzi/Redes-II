@@ -20,89 +20,91 @@
     <header>
       <p class="posicao" id="posicao"></p>
       <h1>NFV e SDN</h1>
-      <p class="lide">Frase de abertura da seção, em uma ou duas linhas.</p>
+      <p class="lide">Duas tecnologias diferentes com um objetivo em mente: tornar a rede de computadores escalável, flexível e programável.</p>
     </header>
 
     <section>
       <h2>O que é SDN</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
-        <strong>O que cobrir aqui</strong>
         <ul>
-          <li>Definição e separação entre plano de controle e plano de dados</li>
-          <li>Origem na academia</li>
+          <li>A ideia consiste em separar o plano de controle (roteamento) do plano de dados (o encaminhamento físico)</li>
+          <li>Isso seria feito usando dispositivos burros na rede, e delegando ao cérebro (software, rodando em uma nuvem), os cálculos de encaminhamento.</li>
+          <li>Na prática, isso não é feito na rede inteira, por uma questão de latência e sobrecarga, então o que se faz é criar uma rede 
+            <span class="balaozinho">Overlay ℹ️
+              <span class="texto-balaozinho">
+                <strong>Overlay:</strong> É a rede "lógica", que abstrai, para quem quer usá-la, a complexidade de roteamento que de fato acontece.
+              </span>
+            </span>
+            e uma rede 
+            <span class="balaozinho">Underlay ℹ️
+              <span class="texto-balaozinho">
+                <strong>Underlay:</strong> É a rede física, faz o roteamento pesado para conectar os elementos da rede Overlay.
+              </span>
+            </span>
+          </li>
         </ul>
       </aside>
-      <p>Escreva o texto aqui.</p>
-    </section>
-
+      <p> 
+        Assim, o funcionamento core do SDN é calcular as rotas específicas para cada switch (ou vswitch), e comunicar o cálculo à cada um deles via OpenFlow.
+        Com essa separação do encaminhamento lógico para o roteamento de fato, podemos criar rotas mais 
+        complexas abrangindo os elementos da rede Overlay, pois o roteamento pesado, 
+        que é baseado em algoritmos fixos (que é usado para ser simples e evitar loops) , acontece na rede Underlay. <br>
+        Além disso, por possibilitar escolhas de roteamentos genéricos nas redes overlay, pode-se fazer decisões mais complexas:
+        QoS melhor, ou, com grande impacto no tema da nossa apresentação, encadeamento das NF's sem peso no cabeçalho.</p>
+        <img src ="assets/img/sdn-architecture-img.webp", alt="imagem explicativa de uma sdn", width="400">
+        <figcaption>As camadas que compoem uma SDN</figcaption>
+      </section>
+    
     <section>
       <h2>Semelhanças</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
-        <strong>O que cobrir aqui</strong>
+        <strong>O que as tecnologias tem em comum?</strong>
         <ul>
-          <li>Uso de virtualização e abstração</li>
-          <li>Rede programável e gerenciamento centralizado</li>
+          <li>Ambos tem como base a 
+            <span class="balaozinho">"Softwarização" ℹ️
+              <span class="texto-balaozinho">
+                <strong>"Softwarização"</strong> As funcionalidades são feitas em software rodando em hardware genérico.
+              </span>
+            </span>
+            , almejando romper a dependência de hardware específico.
+          </li>
+          <li>Ambos operando virtualizando componentes da rede: <br> NF's e plano de controle </li>
         </ul>
       </aside>
-      <p>Escreva o texto aqui.</p>
-    </section>
-
-    <section>
-      <h2>Diferenças</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Preencher a tabela abaixo e comentar cada linha em texto</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
-
-      <div class="rolagem">
-        <table>
-          <thead>
-            <tr><th scope="col">Critério</th><th scope="col">NFV</th><th scope="col">SDN</th></tr>
-          </thead>
-          <tbody>
-            <tr><th scope="row">O que abstrai</th><td>A preencher</td><td>A preencher</td></tr>
-            <tr><th scope="row">Origem</th><td>A preencher</td><td>A preencher</td></tr>
-            <tr><th scope="row">Objetivo principal</th><td>A preencher</td><td>A preencher</td></tr>
-            <tr><th scope="row">Padronização</th><td>A preencher</td><td>A preencher</td></tr>
-          </tbody>
-        </table>
-      </div>
+      <p> Não é coincidência ambas as tecnologias terem os mesmos "fundamentos".<br>
+          Com os pontos apresentados de semelhanças, fica clara que a  ideia é que ambas usam os mesmos métodos, só que para atacar problemas diferentes.<br>
+          A razão dessa abordagem semelhante não tem sua explicação dentro da tecnologia, de fato, mas sim na lógica da economia de escala dos ambientes de nuvem, crescentes desde a época dos seus lançamentos. <br>
+          A ideia é usar hardware genérico, barato, e de uso em massa para tornar a computação barata, também chamados de 
+            <span class="balaozinho">"COTS" ℹ️
+              <span class="texto-balaozinho"><strong>Commercial-Off-The-Shelf</strong>: hardware genérico e barato, de uso geral, com o propósito de ser usado em grandes quantidades para formar sistemas.
+              </span>
+            </span>
+          , e assim virtualizar hardware dedicado.
+      </p>
     </section>
 
     <section>
       <h2>Como se complementam</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
+
+      <p>Visivelmente, por atacarem problemas diferentes, são tecnologias independentes, que podem ser usadas com ou sem a outra.
+        <br>
+        Porém, é claro que as duas tecnologias trabalham bem juntas.
+      </p>
+      
       <aside class="guia">
-        <strong>O que cobrir aqui</strong>
+        <strong>Vantagens de usar SDN para NFV</strong>
         <ul>
-          <li>Independência entre as duas tecnologias</li>
-          <li>Benefícios de usar SDN para implementar e gerenciar uma infraestrutura NFV</li>
+          <li>Ao virtualizar a rede em uma rede Overlay, pode-se decidir que o plano de controle force o roteamento em uma sequência de NFV's sem overhead de cabeçalho, apenas pela definição do algoritmo.</li>
+          <li>Pelo fato de o ciclo de vida da máquina que roda o NFV, e possivelmente seu IP, serem curtos, é frequente a necessidade de "re-encontrar" os NF's. Isso é muito mais simples se o roteamento é todo feito em um software, que pode receber essas requisições de mudança de IP, e ajustar sua rede virtual interna.</li>
         </ul>
       </aside>
-      <p>Escreva o texto aqui.</p>
+      <img src ="assets/img/sdn_with_nfv.jpeg", alt="sdn com nfv, imagem", width="400"> <figcaption>Múltiplas funções de redes, que podem ser encadeadas, que se comunicam pela SDN.</figcaption>
+
     </section>
 
-    <section>
-      <h2>Outras tecnologias relacionadas</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-        <strong>O que cobrir aqui</strong>
-        <ul>
-          <li>Seção opcional</li>
-          <li>Computação em nuvem</li>
-          <li>Network slicing</li>
-        </ul>
-      </aside>
-      <p>Escreva o texto aqui.</p>
-    </section>
 
-    <!-- Links de página anterior e próxima, montados pelo site.js -->
     <nav id="passos"></nav>
   </main>
 

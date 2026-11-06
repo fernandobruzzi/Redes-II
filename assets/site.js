@@ -14,7 +14,7 @@ const PAGINAS = [
   { arquivo: "arquitetura.html",            titulo: "Arquitetura",               curto: "Arquitetura",  tipo: "secao" },
   { arquivo: "vantagens-desvantagens.html", titulo: "Vantagens e desvantagens",  curto: "Vantagens",    tipo: "secao" },
   { arquivo: "sdn.html",                    titulo: "NFV e SDN",                 curto: "NFV e SDN",    tipo: "secao" },
-  { arquivo: "projetos.html",               titulo: "Projetos atuais",           curto: "Projetos",     tipo: "secao" },
+  { arquivo: "amadurecimento.html",               titulo: "Amadurecimento do NFV",           curto: "Amadurecimento",     tipo: "secao" },
   { arquivo: "questoes.html",               titulo: "Questões",                  curto: "Questões",     tipo: "extra", sinal: "?" },
   { arquivo: "bibliografia.html",           titulo: "Bibliografia",              curto: "Bibliografia", tipo: "extra", sinal: "§" }
 ];

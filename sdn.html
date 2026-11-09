@@ -50,10 +50,18 @@
         Com essa separação do encaminhamento lógico para o roteamento de fato, podemos criar rotas mais 
         complexas abrangindo os elementos da rede Overlay, pois o roteamento pesado, 
         que é baseado em algoritmos fixos (que é usado para ser simples e evitar loops) , acontece na rede Underlay. <br>
-        Além disso, por possibilitar escolhas de roteamentos genéricos nas redes overlay, pode-se fazer decisões mais complexas:
-        QoS melhor, ou, com grande impacto no tema da nossa apresentação, encadeamento das NF's sem peso no cabeçalho.</p>
-        <img src ="assets/img/sdn-architecture-img.webp", alt="imagem explicativa de uma sdn", width="400">
-        <figcaption>As camadas que compoem uma SDN</figcaption>
+        Além disso, por possibilitar escolhas de roteamentos genéricos nas redes overlay, pode-se fazer decisões mais complexas como QoS melhor.</p>
+        <figure class="figura">
+      <img
+        src="assets/img/sdn-architecture-img.webp"
+        alt="Visão geral da NFV"
+      >
+      <figcaption>
+        As camadas que compoem uma SDN
+        Fonte: ETSI (2012), <cite>Network Functions Virtualisation: An Introduction, Benefits, Enablers, Challenges &amp; Call for Action</cite>.
+        <a href="bibliografia.html">Ver referência completa</a>.
+      </figcaption>
+    </figure>
       </section>
     
     <section>
@@ -73,9 +81,9 @@
           <li>Ambos operando virtualizando componentes da rede: <br> NF's e plano de controle </li>
         </ul>
       </aside>
-      <p> Não é coincidência ambas as tecnologias terem os mesmos "fundamentos".<br>
-          Com os pontos apresentados de semelhanças, fica clara que a  ideia é que ambas usam os mesmos métodos, só que para atacar problemas diferentes.<br>
-          A razão dessa abordagem semelhante não tem sua explicação dentro da tecnologia, de fato, mas sim na lógica da economia de escala dos ambientes de nuvem, crescentes desde a época dos seus lançamentos. <br>
+      <p> Não é coincidência ambas as tecnologias terem os mesmos "fundamentos".
+          Com os pontos apresentados de semelhanças, fica clara que a  ideia é que ambas usam os mesmos métodos, só que para atacar problemas diferentes.
+          A razão dessa abordagem semelhante não tem sua explicação dentro da tecnologia, de fato, mas sim na lógica da economia de escala dos ambientes de nuvem, crescentes desde a época dos seus lançamentos. 
           A ideia é usar hardware genérico, barato, e de uso em massa para tornar a computação barata, também chamados de 
             <span class="balaozinho">"COTS" ℹ️
               <span class="texto-balaozinho"><strong>Commercial-Off-The-Shelf</strong>: hardware genérico e barato, de uso geral, com o propósito de ser usado em grandes quantidades para formar sistemas.
@@ -88,9 +96,7 @@
     <section>
       <h2>Como se complementam</h2>
 
-      <p>Visivelmente, por atacarem problemas diferentes, são tecnologias independentes, que podem ser usadas com ou sem a outra.
-        <br>
-        Porém, é claro que as duas tecnologias trabalham bem juntas.
+      <p>Visivelmente, por atacarem problemas diferentes, são tecnologias independentes, que podem ser usadas com ou sem a outra. Porém, é claro que as duas tecnologias trabalham bem juntas.
       </p>
       
       <aside class="guia">
@@ -100,7 +106,18 @@
           <li>Pelo fato de o ciclo de vida da máquina que roda o NFV, e possivelmente seu IP, serem curtos, é frequente a necessidade de "re-encontrar" os NF's. Isso é muito mais simples se o roteamento é todo feito em um software, que pode receber essas requisições de mudança de IP, e ajustar sua rede virtual interna.</li>
         </ul>
       </aside>
-      <img src ="assets/img/sdn_with_nfv.jpeg", alt="sdn com nfv, imagem", width="400"> <figcaption>Múltiplas funções de redes, que podem ser encadeadas, que se comunicam pela SDN.</figcaption>
+      <figure class="figura">
+      <img
+        src="assets/img/sdn_with_nfv.jpeg"
+        alt="Visão geral da NFV"
+      >
+      <figcaption>
+        Múltiplas funções de redes, que podem ser encadeadas, que se comunicam pela SDN
+        Fonte: ETSI (2012), <cite>Network Functions Virtualisation: An Introduction, Benefits, Enablers, Challenges &amp; Call for Action</cite>.
+        <a href="bibliografia.html">Ver referência completa</a>.
+      </figcaption>
+    </figure>
+      </section>
 
     </section>
 

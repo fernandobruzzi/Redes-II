@@ -19,8 +19,8 @@
 
     <header>
       <p class="posicao" id="posicao"></p>
-      <h1>Amadurecimento do NFV</h1>
-      <p class="lide">Pontos-chave enfrentados pelo NFV para se consolidar.</p>
+      <h1>Amadurecimento da NFV</h1>
+      <p class="lide">Pontos-chave enfrentados pela NFV para se consolidar.</p>
     </header>
 
     <section>
@@ -28,7 +28,7 @@
       <aside class="guia">
         <strong>Problema</strong>
         <ul>
-          <li>Uma VNF (Virtual Network Function) do Fornecedor A frequentemente não funcionava na infraestrutura (NFVI) ou com o orquestrador (MANO) do Fornecedor B sem integração customizada e cara..</li>
+          <li>Uma VNF (Virtual Network Function) do Fornecedor A frequentemente não funcionava na infraestrutura (NFVI) ou com o orquestrador (MANO) do Fornecedor B sem integração customizada é cara.</li>
           <li>Faltavam APIs padronizadas, tornando a implantação de um ambiente de múltiplos fornecedores um pesadelo logístico</li>
         </ul>
       </aside>
@@ -59,18 +59,19 @@
 
 
     <section>
-      <h1>Resultado</h1>
-      <img src ="assets/img/5Gnetworkfunctions.png" alt="5G e suas NF's" width="400"><br>
+      <figure class="figura">
+      <img
+        src="assets/img/5Gnetworkfunctions.png"
+        alt="Visão geral da NFV"
+      >
+      <figcaption>
+        NFV e 5G
+        Fonte: ETSI (2012), <cite>Network Functions Virtualisation: An Introduction, Benefits, Enablers, Challenges &amp; Call for Action</cite>.
+        <a href="bibliografia.html">Ver referência completa</a>.
+      </figcaption>
+    </figure>
       O resultado desse amadurecimento foi a adoção progressiva das NFV's, ou das CNF's, mais especificamente no caso que vamos abordar, na vida real. Trouxemos o caso do 5G
-      <aside class="guia">
-        <strong>Uso das CNF's no 5G</strong>
-        <!--Explique também o efeito do não uso, por exemplo.-->
-        <ul>
-          <li>O funcionamento prático de microsserviços no 5G Core</li>
-          <li>Os gargalos e limitações operacionais na ausência da virtualização</li>
-          <li>Como a elasticidade resolve picos de tráfego da rede</li>
-        </ul>
-      </aside>
+
       
       <p>O núcleo do 5G (5G Core) foi projetado sob o modelo de Arquitetura Baseada em Serviços (SBA), onde funções vitais — como o AMF (gestão de mobilidade) e o SMF (gestão de sessões) — são totalmente separadas do hardware físico. No cenário moderno, essas funções operam como <strong>Funções de Rede Cloud-Nativas (CNFs)</strong>. Isso significa que elas são construídas como microsserviços independentes, empacotadas em contêineres e orquestradas dinamicamente por sistemas como o Kubernetes. <strong>O efeito de não utilizar essa arquitetura seria paralisante para o 5G:</strong> caso as operadoras ainda dependessem de hardwares proprietários e dedicados (appliances físicos), a rede seria rígida, cara de escalar e sofreria com a lentidão para receber atualizações. Sem a virtualização, conceitos fundamentais do 5G, como o <em>Network Slicing</em> (fatiamento de rede), seriam tecnicamente impossíveis de serem gerenciados dinamicamente.</p>
       

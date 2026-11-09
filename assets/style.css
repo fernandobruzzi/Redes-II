@@ -293,6 +293,26 @@ tbody th { font-weight: 600; width: 28%; }
 .coluna h3 { margin-top: 0; }
 .coluna ul { margin: 0; padding-left: 1.2rem; }
 
+/* ---------- caixas de desafio + solução ---------- */
+
+.desafio {
+  margin: 0 0 1.25rem;
+  padding: 1.25rem 1.5rem;
+  background: var(--papel);
+  border: 1px solid var(--linha);
+  border-top: 4px solid var(--fibra);
+  border-radius: 0.75rem;
+}
+.desafio > p:first-child { margin-top: 0; }
+.desafio__solucao {
+  margin: 1rem 0 0;
+  padding: 0.9rem 1.1rem;
+  background: var(--nevoa);
+  border-left: 4px solid var(--cabo);
+  border-radius: 0.5rem;
+}
+.desafio__solucao strong { color: var(--cabo); }
+
 /* ---------- página inicial ---------- */
 
 .capa__titulo { max-width: 16ch; }

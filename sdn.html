@@ -46,7 +46,7 @@
         </ul>
       </aside>
       <p> 
-        Assim, o funcionamento core do SDN é calcular as rotas específicas para cada switch (ou vswitch), e comunicar o cálculo à cada um deles via OpenFlow.
+        Assim, o funcionamento core do SDN é calcular as rotas específicas para cada switch (ou vswitch), e comunicar o cálculo a cada um deles via OpenFlow.
         Com essa separação do encaminhamento lógico para o roteamento de fato, podemos criar rotas mais 
         complexas abrangindo os elementos da rede Overlay, pois o roteamento pesado, 
         que é baseado em algoritmos fixos (que é usado para ser simples e evitar loops) , acontece na rede Underlay. <br>
@@ -57,7 +57,7 @@
         alt="Visão geral da NFV"
       >
       <figcaption>
-        As camadas que compoem uma SDN
+        As camadas que compõem uma SDN
         Fonte: ETSI (2012), <cite>Network Functions Virtualisation: An Introduction, Benefits, Enablers, Challenges &amp; Call for Action</cite>.
         <a href="bibliografia.html">Ver referência completa</a>.
       </figcaption>
@@ -68,9 +68,9 @@
       <h2>Semelhanças</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
       <aside class="guia">
-        <strong>O que as tecnologias tem em comum?</strong>
+        <strong>O que as tecnologias têm em comum?</strong>
         <ul>
-          <li>Ambos tem como base a 
+          <li>Ambas têm como base a 
             <span class="balaozinho">"Softwarização" ℹ️
               <span class="texto-balaozinho">
                 <strong>"Softwarização"</strong> As funcionalidades são feitas em software rodando em hardware genérico.
@@ -78,11 +78,11 @@
             </span>
             , almejando romper a dependência de hardware específico.
           </li>
-          <li>Ambos operando virtualizando componentes da rede: <br> NF's e plano de controle </li>
+          <li>Ambas operam virtualizando componentes da rede: <br> NFs e plano de controle </li>
         </ul>
       </aside>
       <p> Não é coincidência ambas as tecnologias terem os mesmos "fundamentos".
-          Com os pontos apresentados de semelhanças, fica clara que a  ideia é que ambas usam os mesmos métodos, só que para atacar problemas diferentes.
+          Com os pontos apresentados de semelhanças, fica claro que a ideia é que ambas usam os mesmos métodos, só que para atacar problemas diferentes.
           A razão dessa abordagem semelhante não tem sua explicação dentro da tecnologia, de fato, mas sim na lógica da economia de escala dos ambientes de nuvem, crescentes desde a época dos seus lançamentos. 
           A ideia é usar hardware genérico, barato, e de uso em massa para tornar a computação barata, também chamados de 
             <span class="balaozinho">"COTS" ℹ️
@@ -102,8 +102,8 @@
       <aside class="guia">
         <strong>Vantagens de usar SDN para NFV</strong>
         <ul>
-          <li>Ao virtualizar a rede em uma rede Overlay, pode-se decidir que o plano de controle force o roteamento em uma sequência de NFV's sem overhead de cabeçalho, apenas pela definição do algoritmo.</li>
-          <li>Pelo fato de o ciclo de vida da máquina que roda o NFV, e possivelmente seu IP, serem curtos, é frequente a necessidade de "re-encontrar" os NF's. Isso é muito mais simples se o roteamento é todo feito em um software, que pode receber essas requisições de mudança de IP, e ajustar sua rede virtual interna.</li>
+          <li>Ao virtualizar a rede em uma rede Overlay, pode-se decidir que o plano de controle force o roteamento em uma sequência de VNFs sem overhead de cabeçalho, apenas pela definição do algoritmo.</li>
+          <li>Pelo fato de o ciclo de vida da máquina que roda o NFV, e possivelmente seu IP, serem curtos, é frequente a necessidade de "re-encontrar" as NFs. Isso é muito mais simples se o roteamento é todo feito em um software, que pode receber essas requisições de mudança de IP, e ajustar sua rede virtual interna.</li>
         </ul>
       </aside>
       <figure class="figura">

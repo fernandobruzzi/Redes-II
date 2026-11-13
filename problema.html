@@ -20,7 +20,7 @@
     <header>
       <p class="posicao" id="posicao"></p>
       <h1>Problema</h1>
-      <p class="lide">Nesta sessão iremos explorar alguns problemas que podem ocorrer quando não se tem acesso a tecnologia NFV.</p>
+      <p class="lide">Nesta seção iremos explorar alguns problemas que podem ocorrer quando não se tem acesso à tecnologia NFV.</p>
     </header>
 
     <section>
@@ -62,13 +62,42 @@
         Ainda no exemplo do Load Balancer, é muito claro ver os problemas que surgem com o paradigma de hardware dedicado. Para começar, é claro o alto custo inicial de aquisição do hardware, o que estabelece um custo capital alto.<br>
         Além disso, a necessidade de operar e manter estabelece custos de energia e infraestrutura e custos de expertise dedicada para lidar com o hardware e com seu software dedicados. <br>
         Outro ponto é que, por se tratar de uma função associada à hardware, não tinha escalabilidade fina: deve se comprar máquinas para o pico máximo, e não o médio.<br>
-        Porém, os problemas não param aí: pelo fato de o serviço de rede ser associado ao software, o ciclo de desenvolvimento era muito lento, pois dependia de desenvolver um hardware novo para cada mudança de funcionalidade ou atualização, ou até mesmo novo serviço. <br>
-        Isso criava uma barreira enorme para a inovação e o desenvolvimento de novas tecnologias, além de limitar essa capacidade à poucas empresas (não era open source friendly). </p>
+        Porém, os problemas não param aí: pelo fato de o serviço de rede ser associado ao hardware, o ciclo de desenvolvimento era muito lento, pois dependia de desenvolver um hardware novo para cada mudança de funcionalidade ou atualização, ou até mesmo novo serviço. <br>
+        Isso criava uma barreira enorme para a inovação e o desenvolvimento de novas tecnologias, além de limitar essa capacidade a poucas empresas (não era open source friendly). </p>
     </section>
 
     <section>
       <h2>O exemplo da escalabilidade</h2>
+      <aside class="guia">
+        Imagine uma loja online que protege seus servidores com um firewall físico de inspeção de tráfego. O fabricante vende o equipamento em modelos fixos: um de 10 Gb/s e outro de 40 Gb/s.<br>
+        No dia a dia, a loja usa cerca de 3 Gb/s, então o modelo de 10 Gb/s sobra. Mas, na Black Friday, o tráfego chega a 14 Gb/s durante algumas horas.<br>
+        <ul>
+          <li><strong>Problema:</strong> a capacidade do hardware só cresce em degraus. Não existe um "firewall de 14 Gb/s": ou a empresa fica no de 10 Gb/s, ou salta para o de 40 Gb/s.</li>
+          <li><strong>Solução:</strong> comprar o modelo de 40 Gb/s (ou um segundo equipamento, com licença extra para funcionar em cluster), pensando apenas no pico do ano.</li>
+          <li><strong>Resultado:</strong> durante quase todo o ano, menos de 10% da capacidade comprada é usada, mas a empresa continua pagando pelo equipamento, pelo suporte, pela energia e pelo espaço no rack.</li>
+          <li><strong>Consequência:</strong> se o pico for maior que o previsto, não há o que fazer a curto prazo: comprar, entregar e instalar uma caixa nova leva semanas, e o firewall vira o gargalo da loja justamente no dia de maior venda.</li>
+        </ul>
+        Com NFV, o firewall é software: novas instâncias são criadas quando o tráfego sobe e removidas quando ele cai, e a capacidade acompanha a demanda em passos pequenos, sem compra de equipamento.
+      </aside>
+    </section>
+
+    <section>
+      <h2>O exemplo do ciclo de vida e infraestrutura</h2>
       <!-- GUIA: apague este bloco depois de escrever o texto -->
+      <aside class="guia">
+      Imagine uma operadora de telecomunicações que, após investir pesadamente em uma infraestrutura 4G, descobre que uma nova geração tecnológica está a caminho.<br>
+      Essa nova tecnologia muda o paradigma de transmissão e impede o reaproveitamento do hardware já instalado.<br>
+      Isso expõe alguns problemas:
+      <ul>
+        <li>Como a rede 4G continuará em operação para atender clientes legados, a empresa precisará arcar com o custo de manter duas infraestruturas físicas simultaneamente.</li>
+        <li>Será obrigada a comprar novos equipamentos para o 5G, ciente de que eles também já nascem com um prazo de validade.</li>
+      </ul>
+      Esse cenário evidencia um problema estrutural: a inovação tecnológica (software e protocolos) avança em um ritmo muito mais acelerado e com custos menores do que o ciclo de fabricação e substituição de hardwares especializados.
+      </aside>
+    </section>
+
+    <section>
+      <h2>O exemplo da dependência do fabricante</h2>
         <aside class="guia">
           Imagine uma grande rede corporativa que investiu em um firewall físico de borda de um fabricante renomado, operando com um sistema proprietário fechado.<br>
           Durante os primeiros anos, o equipamento atende perfeitamente às demandas básicas de segurança e proteção da empresa.<br>
@@ -81,29 +110,6 @@
           </ul>
           Esse é o problema da dependência do fabricante (vendor lock-in) no paradigma de hardware dedicado.
         </aside>
-    </section>
-
-    <section>
-      <h2>O exemplo do ciclo de vida e infraestrutura</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-      Imagine uma operadora de telecomunicações que, após investir pesadamente em uma infraestrutura 4G, descobre que uma nova geração tecnológica está a caminho.<br>
-      Essa nova tecnologia muda o paradigma de transmissão e impede o reaproveitamento do hardware já instalado.<br>
-      Isso expõe alguns problemas:
-      <ul>
-        <li>Como a rede 4G continuará em operação para atender clientes legados, a empresa precisará arcar com o custo de manter duas infraestruturas físicas simultaneamente.</li>
-        <li>Será obrigada a comprar novos equipamentos para o 5G, ciente de que eles também já nascem com um prazo de validade</li>
-      </ul>
-      Esse cenário evidencia um problema estrutural: a inovação tecnológica (software e protocolos) avança em um ritmo muito mais acelerado e com custos menores do que o ciclo de fabricação e substituição de hardwares especializados.
-      </aside>
-    </section>
-
-    <section>
-      <h2>O exemplo da dependência do fabricante</h2>
-      <!-- GUIA: apague este bloco depois de escrever o texto -->
-      <aside class="guia">
-      Imagine uma grande rede corporativa que investe em um firewall físico de borda de um fabricante renomado. Esse equipamento roda um sistema operacional proprietário, utiliza processadores específicos e possui uma interface de configuração única no mercado.
-      Dois anos após a compra, a equipe de engenharia decide integrar esse firewall a uma nova ferramenta interna de automação e resposta a incidentes. Porém, a caixa preta do hardware não oferece as APIs necessárias para essa comunicação. A empresa fica de mãos atadas: ela não pode modificar o código do equipamento ou instalar um software de terceiros nele. A única saída é abrir um chamado junto ao fabricante e torcer para que a funcionalidade seja incluída em uma futura atualização de firmware — o que pode levar meses, exigir a compra de licenças adicionais caríssimas ou simplesmente nunca entrar no roadmap de desenvolvimento da marca.      </aside>
     </section>
 
     <!-- Links de página anterior e próxima, montados pelo site.js -->

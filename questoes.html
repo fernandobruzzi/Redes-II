@@ -26,42 +26,42 @@
     <ol class="questoes">
 
       <li class="questao">
-        <p class="questao__pergunta">Escreva a pergunta aqui</p>
+        <p class="questao__pergunta">Por que um load balancer em hardware dedicado gera desperdício, e como a NFV resolve isso?</p>
         <details>
           <summary>Ver resposta</summary>
-          <p>Escreva a resposta esperada aqui.</p>
+          <p>Ele precisa ser comprado para o pico de demanda e fica ocioso no resto do tempo. Com NFV, instâncias são criadas no pico e removidas depois.</p>
         </details>
       </li>
 
       <li class="questao">
-        <p class="questao__pergunta">Escreva a pergunta aqui</p>
+        <p class="questao__pergunta">O que é vendor lock-in e qual exemplo o trabalho usa?</p>
         <details>
           <summary>Ver resposta</summary>
-          <p>Escreva a resposta esperada aqui.</p>
+          <p>Dependência do fabricante. O firewall sem APIs obriga a empresa a esperar meses por um firmware novo.</p>
         </details>
       </li>
 
       <li class="questao">
-        <p class="questao__pergunta">Escreva a pergunta aqui</p>
+        <p class="questao__pergunta">Quem propôs a NFV, e quando?</p>
         <details>
           <summary>Ver resposta</summary>
-          <p>Escreva a resposta esperada aqui.</p>
+          <p>Grandes operadoras de telecom (AT&T, Verizon, China Mobile…), num whitepaper de outubro de 2012. Em novembro de 2012 a ETSI criou o ISG NFV para padronizar.</p>
         </details>
       </li>
 
       <li class="questao">
-        <p class="questao__pergunta">Escreva a pergunta aqui</p>
+        <p class="questao__pergunta">Quais são os três domínios da arquitetura da ETSI e o papel de cada um?</p>
         <details>
           <summary>Ver resposta</summary>
-          <p>Escreva a resposta esperada aqui.</p>
+          <p>VNFs (as funções em software), NFVI (hardware COTS + virtualização) e MANO (gerência e orquestração).</p>
         </details>
       </li>
 
       <li class="questao">
-        <p class="questao__pergunta">Escreva a pergunta aqui</p>
+        <p class="questao__pergunta">NFV e SDN são a mesma coisa? Uma depende da outra?</p>
         <details>
           <summary>Ver resposta</summary>
-          <p>Escreva a resposta esperada aqui.</p>
+          <p>Não. A SDN separa plano de controle e plano de dados, e a NFV virtualiza as funções. São independentes, mas complementares: a SDN encadeia as VNFs e se adapta quando elas mudam de IP.</p>
         </details>
       </li>
 

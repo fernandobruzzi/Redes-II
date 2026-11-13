@@ -3,7 +3,7 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Projetos atuais | NFV</title>
+  <title>Amadurecimento | NFV</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Red+Hat+Display:wght@700;800;900&family=Red+Hat+Text:wght@400;500;600&display=swap" rel="stylesheet">
@@ -24,11 +24,11 @@
     </header>
 
     <section>
-      <h2>Inter-operabilidade</h2>
+      <h2>Interoperabilidade</h2>
       <aside class="guia">
         <strong>Problema</strong>
         <ul>
-          <li>Uma VNF (Virtual Network Function) do Fornecedor A frequentemente não funcionava na infraestrutura (NFVI) ou com o orquestrador (MANO) do Fornecedor B sem integração customizada é cara.</li>
+          <li>Uma VNF (Virtual Network Function) do Fornecedor A frequentemente não funcionava na infraestrutura (NFVI) ou com o orquestrador (MANO) do Fornecedor B sem uma integração customizada, que é cara.</li>
           <li>Faltavam APIs padronizadas, tornando a implantação de um ambiente de múltiplos fornecedores um pesadelo logístico</li>
         </ul>
       </aside>
@@ -52,7 +52,7 @@
       <p>Para resolver essas questões, a arquitetura e as práticas de implantação evoluíram significativamente:</p>
       <ul>
         <li><strong>Gerenciamento unificado:</strong> Introdução de orquestradores de múltiplos domínios (Cross-domain MANO) e integração com SDN/SD-WAN para provisionamento automatizado de ponta a ponta.</li>
-        <li><strong>Cloud-Native (CNFs):</strong> Adoção de contêineres e microsserviços via Kubernetes. A separação do estado permitiu atualizações modulares sem interrupção (rolling updates) e pipelines de CI/CD. Antigamente eram utilizadas VM's inteiras para NF's, que, apesar de ter um ciclo de vida mais longo, eram mais demoradas para se reconfigurar</li>
+        <li><strong>Cloud-Native (CNFs):</strong> Adoção de contêineres e microsserviços via Kubernetes. A separação do estado permitiu atualizações modulares sem interrupção (rolling updates) e pipelines de CI/CD. Antigamente eram utilizadas VMs inteiras para NFs, que, apesar de ter um ciclo de vida mais longo, eram mais demoradas para se reconfigurar</li>
         <li><strong>Observabilidade:</strong> Uso de telemetria padronizada, agentes de monitoramento e sistemas de correlação baseados em AIOps para apontar a causa raiz de problemas rapidamente.</li>
       </ul>
     </section>

@@ -83,27 +83,27 @@
       <h2>Desvantagens e desafios em detalhe</h2>
       <div class="desafio">
         <p><strong>Perda de desempenho e aumento de latência.</strong> Servidores comuns não têm o hardware especializado dos equipamentos dedicados, e o isolamento entre funções obriga os pacotes a serem copiados entre VMs ou contêineres. O artigo "NetBricks: Taking the V out of NFV" (OSDI '16, UC Berkeley) mediu, com pacotes de 64 bytes numa placa de 40 Gb/s, quedas de vazão por núcleo de até 3 vezes com contêineres e até 7 vezes com VMs, em comparação com uma função num único processo. A perda cresce quando várias funções são encadeadas.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> hypervisors adequados e processamento de pacotes em alta velocidade, como o DPDK (<em>Data Plane Development Kit</em>). O próprio NetBricks propõe trocar o isolamento por VMs por isolamento em software (linguagem Rust), mas isso ainda é uma proposta de pesquisa.</p>
+        
       </div>
       <div class="desafio">
         <p><strong>Complexidade da orquestração e do provisionamento automatizado.</strong> A NFV só escala com automação, e automatizar a criação, a escala e a remoção de muitas funções de fornecedores diferentes é difícil. Também há muito mais a monitorar: VMs, funções e fluxos de tráfego.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> uma arquitetura de gerenciamento padronizada, com interfaces bem definidas. É o papel do MANO, descrito na página de Arquitetura.</p>
+        
       </div>
       <div class="desafio">
         <p><strong>Segurança.</strong> Funções virtualizadas são mais expostas a ataques e malware, e o grande número de componentes reduz a visibilidade sobre a rede. O hypervisor vira um ponto crítico: se ele for comprometido, todas as VMs sobre ele ficam em risco.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> hypervisors e funções com certificação de segurança, verificação da configuração dos hypervisors e monitoramento específico para NFV.</p>
+        
       </div>
       <div class="desafio">
         <p><strong>Confiabilidade exigida em redes de telecomunicações.</strong> Redes de operadoras exigem alta disponibilidade. Gerenciar muitas funções sobre hardware e hypervisors de fornecedores diferentes aumenta o risco de instabilidade durante migrações, falhas ou ataques.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> recriar automaticamente em outro servidor uma função que falhou. Mecanismos que garantam a estabilidade da rede ainda são um desafio em aberto.</p>
+      
       </div>
       <div class="desafio">
         <p><strong>Interoperabilidade entre fornecedores.</strong> Uma VNF precisa rodar em ambientes de fornecedores diferentes sem alto custo de integração. A NFV também precisa conviver por muito tempo com os equipamentos físicos e os sistemas OSS/BSS já existentes, formando uma rede híbrida.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> interfaces padronizadas que separem software e hardware e permitam migração gradual, além de mecanismos para validar produtos de fornecedores diferentes.</p>
+       
       </div>
       <div class="desafio">
         <p><strong>Necessidade de novas competências nas equipes.</strong> As equipes foram formadas para operar equipamentos de telecomunicações e agora precisam lidar com virtualização e automação.</p>
-        <p class="desafio__solucao"><strong>Possíveis soluções:</strong> aproveitar que há muito mais profissionais que conhecem servidores de TI do que equipamentos específicos de telecomunicações, e reaproveitar os sistemas e processos existentes.</p>
+      
       </div>
     </section>
 

@@ -59,6 +59,8 @@
 
 
     <section>
+      <h2>Caso de uso de larga escala: 5G</h2>
+
       <figure class="figura">
       <img
         src="assets/img/5Gnetworkfunctions.png"
@@ -70,16 +72,16 @@
         <a href="bibliografia.html">Ver referência completa</a>.
       </figcaption>
     </figure>
-      O resultado desse amadurecimento foi a adoção progressiva das NFV's, ou das CNF's, mais especificamente no caso que vamos abordar, na vida real. Trouxemos o caso do 5G
-
       
       <p>O núcleo do 5G (5G Core) foi projetado sob o modelo de Arquitetura Baseada em Serviços (SBA), onde funções vitais — como o AMF (gestão de mobilidade) e o SMF (gestão de sessões) — são totalmente separadas do hardware físico. No cenário moderno, essas funções operam como <strong>Funções de Rede Cloud-Nativas (CNFs)</strong>. Isso significa que elas são construídas como microsserviços independentes, empacotadas em contêineres e orquestradas dinamicamente por sistemas como o Kubernetes. <strong>O efeito de não utilizar essa arquitetura seria paralisante para o 5G:</strong> caso as operadoras ainda dependessem de hardwares proprietários e dedicados (appliances físicos), a rede seria rígida, cara de escalar e sofreria com a lentidão para receber atualizações. Sem a virtualização, conceitos fundamentais do 5G, como o <em>Network Slicing</em> (fatiamento de rede), seriam tecnicamente impossíveis de serem gerenciados dinamicamente.</p>
-      
-      <ul>
-        <li><strong>Escalabilidade Elástica:</strong> Se milhares de novos dispositivos (como sensores IoT ou smartphones em um estádio) tentarem se conectar simultaneamente, o orquestrador do Kubernetes clona automaticamente os contêineres do plano de controle (ex: AMF e AUSF) para absorver a carga. Quando o pico de tráfego passa, esses contêineres são destruídos, economizando recursos de processamento e energia dos servidores.</li>
-        <li><strong>Agilidade e Atualizações (CI/CD):</strong> Por serem softwares baseados em contêineres rodando em servidores comuns (COTS), as CNFs permitem que as operadoras apliquem patches de segurança ou adicionem novas funcionalidades à rede 5G em questão de minutos, sem que a rede inteira precise ser desligada (Zero Downtime) e sem a necessidade de enviar técnicos para trocar equipamentos nas centrais.</li>
-        <li><strong>Viabilização do Network Slicing:</strong> As CNFs e VNFs permitem fatiar a infraestrutura física de rede em várias redes lógicas isoladas. Uma instância virtualizada de rede pode ser configurada especificamente para garantir baixíssima latência (para telemedicina ou carros autônomos), enquanto outra instância, rodando no mesmo hardware, gerencia tráfego de alta banda (como streaming em 4K), ambas de forma totalmente isolada via software.</li>
-      </ul>
+      <aside class="guia">
+        <ul>
+          <li><strong>Escalabilidade Elástica:</strong> Se milhares de novos dispositivos (como sensores IoT ou smartphones em um estádio) tentarem se conectar simultaneamente, o orquestrador do Kubernetes clona automaticamente os contêineres do plano de controle (ex: AMF e AUSF) para absorver a carga. Quando o pico de tráfego passa, esses contêineres são destruídos, economizando recursos de processamento e energia dos servidores.</li>
+          <li><strong>Agilidade e Atualizações (CI/CD):</strong> Por serem softwares baseados em contêineres rodando em servidores comuns (COTS), as CNFs permitem que as operadoras apliquem patches de segurança ou adicionem novas funcionalidades à rede 5G em questão de minutos, sem que a rede inteira precise ser desligada (Zero Downtime) e sem a necessidade de enviar técnicos para trocar equipamentos nas centrais.</li>
+          <li><strong>Viabilização do Network Slicing:</strong> As CNFs e VNFs permitem fatiar a infraestrutura física de rede em várias redes lógicas isoladas. Uma instância virtualizada de rede pode ser configurada especificamente para garantir baixíssima latência (para telemedicina ou carros autônomos), enquanto outra instância, rodando no mesmo hardware, gerencia tráfego de alta banda (como streaming em 4K), ambas de forma totalmente isolada via software.</li>
+        </ul>
+      </aside>
+
     </section>    
     <!-- Links de página anterior e próxima, montados pelo site.js -->
     <nav id="passos"></nav>
